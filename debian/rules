@@ -4,3 +4,22 @@ export DH_VERBOSE=1
 
 %:
 	dh $@
+
+override_dh_auto_build:
+	dh_auto_build -- \
+	  HTSDIR="/usr/include/htslib" \
+	  HTSLIB=$(shell dpkg -S libhts.a | awk '{print $$2}') \
+	  CFLAGS="$$(dpkg-buildflags --get CFLAGS)" \
+	  CPPFLAGS="-I. -DSAMTOOLS=1 $$(dpkg-buildflags --get CPPFLAGS)" \
+	  LDFLAGS="$$(dpkg-buildflags --get LDFLAGS)"
+
+override_dh_auto_test:
+	dh_auto_test -- \
+	  HTSDIR="/usr/include/htslib" \
+	  HTSLIB=$(shell dpkg -S libhts.a | awk '{print $$2}')
+
+override_dh_auto_install:
+	dh_auto_install -- \
+	  prefix=/usr \
+	  HTSDIR="/usr/include/htslib" \
+	  HTSLIB=$(shell dpkg -S libhts.a | awk '{print $$2}')
