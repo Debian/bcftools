@@ -14,7 +14,7 @@ Package: bcftools
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends}
-Conflicts: samtools (<< 0.2)
+Breaks: samtools (<< 0.2)
 Replaces: samtools (<< 0.2)
 Description: Utilities for calling variants and manipulating VCFs and BCFs
  Bcftools is a set of utilities that manipulate variant calls in the Variant
