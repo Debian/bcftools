@@ -1,0 +1,26 @@
+Source: bcftools
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+Uploaders: Charles Plessy <plessy@debian.org>
+Section: science
+Priority: optional
+Build-Depends: debhelper (>= 9),
+               libhts-dev
+Standards-Version: 3.9.5
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-med/bcftools.git
+Vcs-Git: git://anonscm.debian.org/debian-med/bcftools.git -b debian/unstable
+Homepage: https://github.com/samtools/bcftools
+
+Package: bcftools
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: Utilities for calling variants and manipulating VCFs and BCFs
+ Bcftools is a set of utilities that manipulate variant calls in the Variant
+ Call Format (VCF) and its binary counterpart BCF. All commands work
+ transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.
+ .
+ Bcftools is designed to work on a stream. It regards an input file "-"
+ as the standard input (stdin) and an output file "-" as the standard
+ output (stdout). Several commands can thus be combined with Unix
+ pipes.
