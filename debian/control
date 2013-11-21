@@ -12,7 +12,6 @@ Homepage: https://github.com/samtools/bcftools
 
 Package: bcftools
 Architecture: any
-Multi-Arch: same
 Depends: ${shlibs:Depends},
          ${misc:Depends}
 Conflicts: samtools (<< 0.2)
